@@ -3,30 +3,11 @@ export async function addEmailToAirtable(email: string) {
   const baseId = process.env.AIRTABLE_BASE_ID
   const tableName = process.env.AIRTABLE_TABLE_NAME || "Signups"
 
-  console.log("[v0] Airtable Config Check:", {
-    hasApiKey: !!apiKey,
-    hasBaseId: !!baseId,
-    baseIdFormat: baseId?.substring(0, 3),
-    tableName,
-  })
-
-  if (!apiKey) {
-    throw new Error("AIRTABLE_API_KEY environment variable is not set")
+  if (!apiKey || !baseId) {
+    throw new Error("Airtable configuration is missing")
   }
 
-  if (!baseId) {
-    throw new Error("AIRTABLE_BASE_ID environment variable is not set")
-  }
-
-  // Validate base ID format (should start with 'app')
-  if (!baseId.startsWith("app")) {
-    throw new Error(
-      `Invalid AIRTABLE_BASE_ID format. Expected format: appXXXXXXXXXXXXXX (starts with 'app'), got: ${baseId.substring(0, 10)}...`,
-    )
-  }
-
-  const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`
-  console.log("[v0] Airtable URL:", url)
+  const url = `https://api.airtable.com/v0/${baseId}/${tableName}`
 
   const response = await fetch(url, {
     method: "POST",
@@ -43,24 +24,9 @@ export async function addEmailToAirtable(email: string) {
   })
 
   if (!response.ok) {
-    const errorText = await response.text()
-    console.error("[v0] Airtable API Error:", {
-      status: response.status,
-      statusText: response.statusText,
-      body: errorText,
-    })
-
-    let errorMessage = "Failed to add email to Airtable"
-    try {
-      const errorJson = JSON.parse(errorText)
-      errorMessage = errorJson.error?.message || errorJson.error || errorMessage
-    } catch {
-      errorMessage = errorText || errorMessage
-    }
-
-    throw new Error(errorMessage)
+    const error = await response.json()
+    throw new Error(error.error?.message || "Failed to add email to Airtable")
   }
 
-  console.log("[v0] Email added to Airtable successfully")
   return response.json()
 }

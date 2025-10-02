@@ -35,12 +35,6 @@ export function Header() {
             >
               About
             </a>
-            <Link
-              href="/newsletter"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Newsletter
-            </Link>
           </nav>
 
           {/* CTA Button */}
