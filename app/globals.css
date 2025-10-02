@@ -173,8 +173,9 @@
     background-size: 400% 400%;
   }
 
+  /* Updated gradient to deep indigo → purple → cyan → teal for a more modern web3 aesthetic */
   .bg-gradient-mesh {
-    background: linear-gradient(-45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #667eea 100%);
+    background: linear-gradient(-45deg, #1e1b4b 0%, #7c3aed 25%, #06b6d4 50%, #14b8a6 75%, #1e1b4b 100%);
   }
 
   @keyframes gradient-colors {

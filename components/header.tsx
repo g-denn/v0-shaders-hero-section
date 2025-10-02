@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Header() {
   return (
@@ -9,7 +10,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-foreground">Trick</span>
+            <Link href="/">
+              <span className="text-2xl font-bold text-foreground">Trick</span>
+            </Link>
           </div>
 
           {/* Navigation */}
@@ -32,6 +35,12 @@ export function Header() {
             >
               About
             </a>
+            <Link
+              href="/newsletter"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Newsletter
+            </Link>
           </nav>
 
           {/* CTA Button */}
@@ -39,7 +48,9 @@ export function Header() {
             <Button variant="outline" size="sm" className="hidden sm:flex bg-transparent">
               Sign In
             </Button>
-            <Button size="sm">Get Started</Button>
+            <Link href="/signup">
+              <Button size="sm">Get Started</Button>
+            </Link>
           </div>
         </div>
       </div>

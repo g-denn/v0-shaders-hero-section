@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { TypingText } from "@/components/typing-text"
 
 export function HeroSection() {
   const { ref, isVisible } = useScrollAnimation()
@@ -27,7 +26,7 @@ export function HeroSection() {
           <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 text-balance leading-tight">
             Turn Property into a{" "}
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent text-glow-purple">
-              <TypingText text="Digital Asset Class" speed={80} />
+              Digital Asset Class
             </span>
           </h1>
 

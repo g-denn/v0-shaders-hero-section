@@ -15,7 +15,7 @@ export function ProblemOpportunity() {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 max-w-6xl mx-auto">
           {/* Problem */}
-          <div className="space-y-6 bg-black/60 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+          <div className="space-y-6 bg-black backdrop-blur-md rounded-3xl p-8 border border-white/10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 border border-destructive/20">
               <span className="text-xs font-semibold text-destructive uppercase tracking-wide">The Problem</span>
             </div>
@@ -32,7 +32,7 @@ export function ProblemOpportunity() {
           </div>
 
           {/* Opportunity */}
-          <div className="space-y-6 bg-black/60 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+          <div className="space-y-6 bg-black backdrop-blur-md rounded-3xl p-8 border border-white/10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20">
               <span className="text-xs font-semibold text-secondary uppercase tracking-wide">The Opportunity</span>
             </div>

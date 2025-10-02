@@ -49,7 +49,7 @@ export function ValuePillars() {
       id="features"
     >
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16 bg-black/60 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+        <div className="max-w-3xl mx-auto text-center mb-16 bg-black backdrop-blur-md rounded-3xl p-8 border border-white/10">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 text-balance">
             Everything you need to invest smarter
           </h2>
@@ -65,7 +65,7 @@ export function ValuePillars() {
             return (
               <Card
                 key={index}
-                className={`border-white/20 hover:border-primary/50 transition-all duration-700 bg-black/60 backdrop-blur-md ${
+                className={`border-white/20 hover:border-primary/50 transition-all duration-700 bg-black backdrop-blur-md ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
