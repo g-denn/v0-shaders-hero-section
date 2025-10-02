@@ -1,15 +1,25 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function CTASection() {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
-    <section className="py-20 lg:py-32">
+    <section
+      ref={ref}
+      className={`py-20 lg:py-32 transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground text-balance leading-tight">
             Start Investing Today
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-white leading-relaxed max-w-2xl mx-auto drop-shadow-lg font-medium">
             Fractional property ownership is now accessible to everyone. Be part of the future of real estate.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

@@ -1,6 +1,17 @@
+"use client"
+
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+
 export function HighlightSection() {
+  const { ref, isVisible } = useScrollAnimation()
+
   return (
-    <section className="py-20 lg:py-32">
+    <section
+      ref={ref}
+      className={`py-20 lg:py-32 transition-all duration-1000 ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+    >
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="relative p-12 lg:p-20 rounded-3xl bg-gradient-to-br from-primary via-accent to-secondary overflow-hidden">
